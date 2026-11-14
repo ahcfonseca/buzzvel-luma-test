@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/* Figma colors. The original `backgrounnd-*` names are normalized here. */
+@theme inline {
+  --font-sans: var(--font-inter), Arial, sans-serif;
+  --font-heading: var(--font-jakarta), Arial, sans-serif;
+}
+
+@theme {
+  --color-primary-blue: #3157f6;
+  --color-primary-blue-light: #e2e8ff;
+  --color-primary-orange: #ff704d;
+  --color-secondary-yellow: #ffee7e;
+  --color-background-white: #ffffff;
+  --color-background-light-yellow: #f9f8f3;
+  --color-background-yellow: #fff1c2;
+  --color-background-orange: #ffcb9f;
+  --color-background-darkblue: #171b2c;
+  --color-text-primary: #171b2c;
+  --color-text-secondary: #656770;
+  --color-text-tertiary: #6d7384;
+  --color-text-white-primary: #ffffff;
+  --color-text-white-secondary: #e7e7ec;
+  --color-text-white-tertiary: #9e9faa;
+  --color-line: #dbdfeb;
+  --spacing: 0.25rem;
+  --spacing-section: 3.75rem;
+  --spacing-gutter: 1.25rem;
+  --container-content: 70rem;
+  --radius-control: 0.5rem;
+  --radius-badge: 0.375rem;
+  --radius-floating: 0.75rem;
+  --radius-card: 1rem;
+  --radius-panel: 1.5rem;
+  --shadow-floating: 0 4px 12px rgb(0 0 0 / 10%);
+  --shadow-dark-m: 0 0 4px #00000012, 0 4px 6px -1px #0000001a;
+}
+
+:root {
+  --type-h1-size: 2.5rem; --type-h1-leading: 2.75rem; --type-h1-tracking: -1px;
+  --type-h2-size: 2.25rem; --type-h2-leading: 2.5rem; --type-h2-tracking: -0.9px;
+  --type-h3-size: 2rem; --type-h3-leading: 2.25rem; --type-h3-tracking: -0.8px;
+  --type-h4-size: 1.75rem; --type-h4-leading: 2rem; --type-h4-tracking: -0.75px;
+  --type-h5-leading: 1.75rem;
+  --type-subtitle-1-size: 1rem; --type-subtitle-1-leading: 1.625rem;
+  --type-subtitle-2-size: 0.875rem; --type-subtitle-2-leading: 1.5rem;
+  --type-quote-size: 1.25rem; --type-quote-leading: 2rem; --type-quote-tracking: 0px;
+}
+
+@media (min-width: 48rem) {
+  :root { --spacing-gutter: 2.5rem; --spacing-section: 5rem; }
+}
+@media (min-width: 64rem) {
+  :root {
+    --spacing-gutter: 5rem; --spacing-section: 6.25rem;
+    --type-h1-size: 4rem; --type-h1-leading: 4.375rem; --type-h1-tracking: -1.6px;
+    --type-h2-size: 3.5rem; --type-h2-leading: 4rem; --type-h2-tracking: -1.4px;
+    --type-h3-size: 3rem; --type-h3-leading: 3.5rem; --type-h3-tracking: -1.2px;
+    --type-h4-size: 2.5rem; --type-h4-leading: 3rem; --type-h4-tracking: -1.1px;
+    --type-h5-leading: 2rem;
+    --type-subtitle-1-size: 1.125rem; --type-subtitle-1-leading: 1.75rem;
+    --type-subtitle-2-size: 1rem; --type-subtitle-2-leading: 1.75rem;
+    --type-quote-size: 1.875rem; --type-quote-leading: 2.75rem; --type-quote-tracking: -0.75px;
+  }
+}
+
+@layer base {
+  body { margin: 0; background: var(--color-background-light-yellow); color: var(--color-text-primary); font-family: var(--font-sans); font-size: 0.875rem; line-height: 1.5rem; }
+  button, input, textarea { font: inherit; }
+  button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 3px solid var(--color-primary-blue); outline-offset: 4px; }
+  ::selection { background: var(--color-primary-blue-light); color: var(--color-text-primary); }
+  [id] { scroll-margin-top: 2rem; }
+}
+
+@layer components {
+  .container-layout { width: 100%; padding-inline: var(--spacing-gutter); }
+  .container-content { width: 100%; max-width: var(--container-content); margin-inline: auto; }
+  .section { padding-block: var(--spacing-section); }
+  .type-h1, .type-h2, .type-h3, .type-h4 { font-family: var(--font-heading); font-weight: 800; }
+  .type-h1 { font-size: var(--type-h1-size); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); }
+  .type-h2 { font-size: var(--type-h2-size); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); }
+  .type-h3 { font-size: var(--type-h3-size); line-height: var(--type-h3-leading); letter-spacing: var(--type-h3-tracking); }
+  .type-h4 { font-size: var(--type-h4-size); line-height: var(--type-h4-leading); letter-spacing: var(--type-h4-tracking); }
+  .type-h5 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; line-height: var(--type-h5-leading); }
+  .type-subtitle-1 { font-size: var(--type-subtitle-1-size); line-height: var(--type-subtitle-1-leading); }
+  .type-subtitle-2 { font-size: var(--type-subtitle-2-size); line-height: var(--type-subtitle-2-leading); }
+  .type-body { font-size: 0.875rem; line-height: 1.5rem; }
+  .type-overline { font-size: 0.75rem; line-height: 1rem; font-weight: 600; letter-spacing: 1.44px; text-transform: uppercase; }
+  .type-quote { font-family: var(--font-heading); font-weight: 600; font-size: var(--type-quote-size); line-height: var(--type-quote-leading); letter-spacing: var(--type-quote-tracking); }
+  .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 50; transform: translateY(-200%); background: white; padding: 0.75rem 1rem; border-radius: var(--radius-control); }
+  .skip-link:focus { transform: translateY(0); }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

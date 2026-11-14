@@ -1,0 +1,15 @@
+import { Button, ButtonLink } from "@/components/ui/button";
+import { CategoryCard } from "@/components/ui/cards";
+import { InputField, TextareaField } from "@/components/ui/form-field";
+import { Container, Section, SectionHeading } from "@/components/ui/layout";
+
+export default function DesignSystemPreview() {
+  return <>
+    <header className="border-b border-line py-6"><Container><a href="/" aria-label="Luma home" className="font-heading text-2xl font-extrabold tracking-tight">luma.</a></Container></header>
+    <main id="main-content">
+      <Section aria-labelledby="foundation-title"><p className="type-overline mb-4 text-primary-blue">Luma design system</p><h1 id="foundation-title" className="type-h1 max-w-200">A foundation for better learning.</h1><p className="type-subtitle-1 mt-6 max-w-140 text-text-secondary">Responsive typography, considered spacing, and reusable components from the Luma design.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><ButtonLink href="#components">Explore components</ButtonLink><ButtonLink href="#typography" variant="secondary">View typography</ButtonLink></div></Section>
+      <Section id="components" aria-labelledby="components-title" className="bg-background-white"><SectionHeading id="components-title" eyebrow="Reusable components" title="Built from the same foundations." /><div className="mt-12 grid gap-6 md:grid-cols-2"><CategoryCard number="01" title="Product design" description="Turn big ideas into thoughtful digital experiences." href="#typography" /><div className="rounded-card border border-line p-6"><h3 className="type-h5 mb-6">Form controls</h3><div className="flex flex-col gap-6"><InputField id="preview-name" label="Full name" placeholder="Your name" autoComplete="name" /><InputField id="preview-email" label="Email" type="email" placeholder="you@example.com" autoComplete="email" /><TextareaField id="preview-message" label="Your question" placeholder="Tell us how we can help…" /><Button disabled fullWidth>Send message (preview)</Button></div></div></div></Section>
+      <Section id="typography" aria-labelledby="typography-title"><SectionHeading id="typography-title" eyebrow="Typography" title="One voice. Every screen." description="Plus Jakarta Sans for expressive headings. Inter for clear, readable supporting text." /><div className="mt-12 flex flex-col gap-6"><p className="type-h1">Heading one</p><p className="type-h2">Heading two</p><p className="type-h3">Heading three</p><p className="type-h4">Heading four</p><p className="type-h5">Heading five</p><p className="type-quote">“One focused lesson at a time.”</p><p className="type-subtitle-1">Subtitle one</p><p className="type-subtitle-2">Subtitle two</p><p className="type-body">Body text — practical learning for curious people.</p><p className="type-overline">Overline</p></div></Section>
+    </main><footer className="bg-background-darkblue py-10 text-text-white-secondary"><Container><p>© 2026 Luma Learning · Design system preview</p></Container></footer>
+  </>;
+}
