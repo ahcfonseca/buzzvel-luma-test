@@ -26,6 +26,7 @@ The 1120px cap applies to content, excluding gutters. At 1280px the content is e
 - `RatingBadge`: content-sized five-star social proof with a typed average rating and label. The consuming section controls its position.
 - `StatBadge`: content-sized statistic and supporting label, with typed value and label props. The consuming section controls its position.
 - `Hero`: responsive Figma hero with configurable course and how-it-works links. Their default section targets will become available as those sections are added.
+- `Categories`: responsive category list using `CategoryCard` and `SectionHeading`, with one/two/four columns on mobile/tablet/desktop. Accepts typed category data; the course catalogue destinations are reserved for future pages.
 
 Fonts are served through `next/font`; reduced-motion preferences disable transitions and animations. The preview form has no submission integration.
 
