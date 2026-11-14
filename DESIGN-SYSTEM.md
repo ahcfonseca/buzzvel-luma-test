@@ -28,6 +28,8 @@ The 1120px cap applies to content, excluding gutters. At 1280px the content is e
 - `RatingBadge`: content-sized five-star social proof with a typed average rating and label. The consuming section controls its position.
 - `StatBadge`: content-sized statistic and supporting label, with typed value and label props. The consuming section controls its position.
 - `Pill`: a transparent bordered metadata label with native span props. Inherits text color; it is not a button or filter.
+- `ContactCard`: responsive icon-and-detail card with typed title, value, icon dimensions and optional value link.
+- `Contact`: responsive contact details and form. Reuses shared fields and buttons, validates entries and prepares an email draft; no message is sent automatically and no delivery endpoint is configured. Form copy remains English across breakpoints for consistency with the site.
 - `FeaturedCourse`: responsive featured-course section with local optimized imagery, metadata pills, and configurable course/catalogue destinations. Those destinations are reserved for future course pages.
 - `HowItWorks`: centered eyebrow/title and a semantic three-step list with decorative geometric illustrations. Steps stack vertically on mobile and tablet and form a connected row on desktop. The illustrations use an additional design color, `accent-yellow` (`#e9d659`).
 - `Testimonial`: semantic quote/author figure and community-statistics definition list. Metrics sit in a mobile row and a desktop column with a divider; the quote retains its 600 weight and metric values follow the 700 heading override.
