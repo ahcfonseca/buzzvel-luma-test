@@ -1,6 +1,7 @@
 ﻿import { Hero } from "@/components/sections/hero";
 import { SiteHeader } from "@/components/site-header";
 import { Categories } from "@/components/sections/categories";
+import { FeaturedCourse } from "@/components/sections/featured-course";
 
 export default function HomePage() {
   return <>
@@ -8,6 +9,7 @@ export default function HomePage() {
     <main id="main-content">
       <Hero />
       <Categories />
+      <FeaturedCourse />
     </main>
   </>;
 }

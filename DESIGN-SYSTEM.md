@@ -19,12 +19,14 @@ The 1120px cap applies to content, excluding gutters. At 1280px the content is e
 ## Components
 
 - `Container`, `Section`, `SectionHeading`: responsive page structure. Give every section an accessible heading via `aria-labelledby`.
-- `Button`: native action/submit button; defaults to `type="button"`. `ButtonLink`: navigation with the same primary, secondary, and yellow appearances.
+- `Button`: native action/submit button; defaults to `type="button"`. `ButtonLink`: navigation with the same primary, secondary, yellow, and ghost appearances. Ghost is designed for dark or saturated backgrounds.
 - `InputField`, `TextareaField`: explicit labels, native HTML props, optional hint/error associations. Callers own validation and submission.
 - `CategoryCard`, `CourseCard`: typed content, semantic structure, responsive imagery. Course images should use local paths in `public/`.
 - `AvatarGroup`: overlapping decorative portraits with an accessible group label.
 - `RatingBadge`: content-sized five-star social proof with a typed average rating and label. The consuming section controls its position.
 - `StatBadge`: content-sized statistic and supporting label, with typed value and label props. The consuming section controls its position.
+- `Pill`: a transparent bordered metadata label with native span props. Inherits text color; it is not a button or filter.
+- `FeaturedCourse`: responsive featured-course section with local optimized imagery, metadata pills, and configurable course/catalogue destinations. Those destinations are reserved for future course pages.
 - `Hero`: responsive Figma hero with configurable course and how-it-works links. Their default section targets will become available as those sections are added.
 - `Categories`: responsive category list using `CategoryCard` and `SectionHeading`, with one/two/four columns on mobile/tablet/desktop. Accepts typed category data; the course catalogue destinations are reserved for future pages.
 
