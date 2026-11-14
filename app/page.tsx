@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Categories } from "@/components/sections/categories";
 import { FeaturedCourse } from "@/components/sections/featured-course";
 import { HowItWorks } from "@/components/sections/how-it-works";
+import { Testimonial } from "@/components/sections/testimonial";
 
 export default function HomePage() {
   return <>
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Categories />
       <FeaturedCourse />
       <HowItWorks />
+      <Testimonial />
     </main>
   </>;
 }

@@ -30,6 +30,7 @@ The 1120px cap applies to content, excluding gutters. At 1280px the content is e
 - `Pill`: a transparent bordered metadata label with native span props. Inherits text color; it is not a button or filter.
 - `FeaturedCourse`: responsive featured-course section with local optimized imagery, metadata pills, and configurable course/catalogue destinations. Those destinations are reserved for future course pages.
 - `HowItWorks`: centered eyebrow/title and a semantic three-step list with decorative geometric illustrations. Steps stack vertically on mobile and tablet and form a connected row on desktop. The illustrations use an additional design color, `accent-yellow` (`#e9d659`).
+- `Testimonial`: semantic quote/author figure and community-statistics definition list. Metrics sit in a mobile row and a desktop column with a divider; the quote retains its 600 weight and metric values follow the 700 heading override.
 - `Hero`: responsive Figma hero with configurable course and how-it-works links. Their default section targets will become available as those sections are added.
 - `Categories`: responsive category list using `CategoryCard` and `SectionHeading`, with one/two/four columns on mobile/tablet/desktop. Accepts typed category data; the course catalogue destinations are reserved for future pages.
 
