@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/layout";
+import { TextLink } from "@/components/ui/text-link";
 
 export type NavigationItem = { label: string; href: string };
 export type SiteHeaderProps = {
@@ -79,11 +80,11 @@ export function SiteHeader({ items = navigation, loginHref = "/login", startHref
         <Logo />
         <nav aria-label="Main navigation" className="hidden lg:block">
           <ul className="flex items-center gap-8">
-            {items.map(item => <li key={item.href}><a href={item.href} className="header-nav-link">{item.label}</a></li>)}
+            {items.map(item => <li key={item.href}><TextLink href={item.href} className="header-nav-link">{item.label}</TextLink></li>)}
           </ul>
         </nav>
         <div className="hidden items-center justify-end gap-2 lg:flex">
-          <a href={loginHref} className="header-nav-link px-4 py-2.5">Log in</a>
+          <TextLink href={loginHref} className="header-nav-link px-4 py-2.5">Log in</TextLink>
           <ButtonLink href={startHref} size="compact">Start learning</ButtonLink>
         </div>
         <button type="button" className="header-menu-toggle lg:hidden" aria-label="Open navigation menu" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={openMenu}>
@@ -108,7 +109,7 @@ export function SiteHeader({ items = navigation, loginHref = "/login", startHref
       <Container className="flex min-h-[calc(100dvh-69px)] flex-col pb-10 pt-10">
         <nav aria-label="Mobile navigation">
           <ul className="flex flex-col">
-            {items.map(item => <li key={item.href} className="border-b border-line"><a href={item.href} onClick={closeMenu} className="type-h4 block py-5 transition-colors hover:text-primary-blue">{item.label}</a></li>)}
+            {items.map(item => <li key={item.href} className="border-b border-line"><TextLink href={item.href} onClick={closeMenu} className="type-h4 block py-5 transition-colors hover:text-primary-blue">{item.label}</TextLink></li>)}
           </ul>
         </nav>
         <div className="mt-auto flex flex-col gap-3 pt-12">

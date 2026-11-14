@@ -76,6 +76,8 @@
 }
 
 @layer components {
+  .link-underline { background-image: linear-gradient(currentColor, currentColor); background-position: left bottom; background-repeat: no-repeat; background-size: 0% 1px; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size 200ms ease-out; }
+  a:is(:hover, :focus-visible) .link-underline { background-size: 100% 1px; }
   .cta-decorations[data-parallax="active"] > * { transform: translate3d(0, var(--parallax-offset, 0px), 0); will-change: transform; }
   .cta-decorations[data-parallax="active"] > :nth-child(even) { transform: translate3d(0, calc(-1 * var(--parallax-offset, 0px)), 0); }
   .people-collage { --collage-unit: calc(100cqw / 362); position: relative; container-type: inline-size; width: 100%; max-width: 530px; aspect-ratio: 362 / 309.5; margin-inline: auto; }
@@ -157,6 +159,7 @@
 @keyframes menu-slide-up { from { transform: translateY(0); } to { transform: translateY(-100%); } }
 
 @media (prefers-reduced-motion: reduce) {
+  .link-underline { transition: none; }
   .cta-decorations > * { transform: none !important; will-change: auto; }
   .people-collage .people-collage-column { transform: none !important; will-change: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }

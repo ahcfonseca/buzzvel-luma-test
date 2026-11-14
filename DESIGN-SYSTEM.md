@@ -20,6 +20,9 @@ The 1120px cap applies to content, excluding gutters. At 1280px the content is e
 
 ## Components
 
+- `TextLink`: shared text-link component with a global left-to-right underline on hover and keyboard focus. Used by navigation, contact details, course titles and footer links; category-card Explore labels use the same treatment. Reduced motion shows the underline immediately. Image-only links and button-style links retain their existing appearance.
+- `SiteFooter`: responsive footer with the original light logo, Explore/Company/Support navigation and copyright. Mobile places Explore and Company side by side and Support below; desktop uses four columns. Existing in-page destinations are connected; remaining company, support and legal routes are reserved for future pages.
+
 - `Container`, `Section`, `SectionHeading`: responsive page structure. Give every section an accessible heading via `aria-labelledby`.
 - `Button`: native action/submit button; defaults to `type="button"`. `ButtonLink`: navigation with the same primary, secondary, yellow, and ghost appearances. Ghost is designed for dark or saturated backgrounds.
 - `InputField`, `TextareaField`: explicit labels, native HTML props, optional hint/error associations. Callers own validation and submission.
