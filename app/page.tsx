@@ -2,10 +2,11 @@ import { Button, ButtonLink } from "@/components/ui/button";
 import { CategoryCard } from "@/components/ui/cards";
 import { InputField, TextareaField } from "@/components/ui/form-field";
 import { Container, Section, SectionHeading } from "@/components/ui/layout";
+import { SiteHeader } from "@/components/site-header";
 
 export default function DesignSystemPreview() {
   return <>
-    <header className="border-b border-line py-6"><Container><a href="/" aria-label="Luma home" className="font-heading text-2xl font-extrabold tracking-tight">luma.</a></Container></header>
+    <SiteHeader />
     <main id="main-content">
       <Section aria-labelledby="foundation-title"><p className="type-overline mb-4 text-primary-blue">Luma design system</p><h1 id="foundation-title" className="type-h1 max-w-200">A foundation for better learning.</h1><p className="type-subtitle-1 mt-6 max-w-140 text-text-secondary">Responsive typography, considered spacing, and reusable components from the Luma design.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><ButtonLink href="#components">Explore components</ButtonLink><ButtonLink href="#typography" variant="secondary">View typography</ButtonLink></div></Section>
       <Section id="components" aria-labelledby="components-title" className="bg-background-white"><SectionHeading id="components-title" eyebrow="Reusable components" title="Built from the same foundations." /><div className="mt-12 grid gap-6 md:grid-cols-2"><CategoryCard number="01" title="Product design" description="Turn big ideas into thoughtful digital experiences." href="#typography" /><div className="rounded-card border border-line p-6"><h3 className="type-h5 mb-6">Form controls</h3><div className="flex flex-col gap-6"><InputField id="preview-name" label="Full name" placeholder="Your name" autoComplete="name" /><InputField id="preview-email" label="Email" type="email" placeholder="you@example.com" autoComplete="email" /><TextareaField id="preview-message" label="Your question" placeholder="Tell us how we can help…" /><Button disabled fullWidth>Send message (preview)</Button></div></div></div></Section>
