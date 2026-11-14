@@ -4,6 +4,8 @@ The landing page at `/` is being assembled section by section. The component sho
 
 ## Tokens
 
+Heading weights H1–H4 use 700 by request, overriding Figma's original 800. H5 remains 700; quote styles remain 600.
+
 `app/globals.css` is the source of truth. Tailwind v4 exposes the color, font, spacing, radius, and shadow tokens as utilities. All 16 Figma colors are included, with `backgrounnd` normalized to `background`. Typography includes all 20 desktop/mobile styles through 10 responsive classes: `type-h1` through `type-h5`, `type-subtitle-1`, `type-subtitle-2`, `type-body`, `type-overline`, and `type-quote`.
 
 Spacing uses Tailwind's 4px base: 1 = 4px, 2 = 8px, 3 = 12px, 4 = 16px, 5 = 20px, 6 = 24px, 7 = 28px, 8 = 32px, 10 = 40px, 12 = 48px, 15 = 60px, 16 = 64px, 20 = 80px, 25 = 100px. Use `gap-*`, `m*`, and `p*` utilities. These spacing values are implementation tokens; Figma has no numeric variables.
@@ -27,6 +29,7 @@ The 1120px cap applies to content, excluding gutters. At 1280px the content is e
 - `StatBadge`: content-sized statistic and supporting label, with typed value and label props. The consuming section controls its position.
 - `Pill`: a transparent bordered metadata label with native span props. Inherits text color; it is not a button or filter.
 - `FeaturedCourse`: responsive featured-course section with local optimized imagery, metadata pills, and configurable course/catalogue destinations. Those destinations are reserved for future course pages.
+- `HowItWorks`: centered eyebrow/title and a semantic three-step list with decorative geometric illustrations. Steps stack vertically on mobile and tablet and form a connected row on desktop. The illustrations use an additional design color, `accent-yellow` (`#e9d659`).
 - `Hero`: responsive Figma hero with configurable course and how-it-works links. Their default section targets will become available as those sections are added.
 - `Categories`: responsive category list using `CategoryCard` and `SectionHeading`, with one/two/four columns on mobile/tablet/desktop. Accepts typed category data; the course catalogue destinations are reserved for future pages.
 

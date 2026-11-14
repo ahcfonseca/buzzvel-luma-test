@@ -11,6 +11,7 @@
   --color-primary-blue-light: #e2e8ff;
   --color-primary-orange: #ff704d;
   --color-secondary-yellow: #ffee7e;
+  --color-accent-yellow: #e9d659;
   --color-background-white: #ffffff;
   --color-background-light-yellow: #f9f8f3;
   --color-background-yellow: #fff1c2;
@@ -74,6 +75,10 @@
 }
 
 @layer components {
+  .how-it-works-steps { display: grid; }
+  .how-it-works-step { position: relative; min-width: 0; min-height: 271px; padding-bottom: 76px; }
+  .how-it-works-step:last-child { min-height: 0; padding-bottom: 0; }
+  .how-it-works-step:not(:last-child)::after { content: ""; position: absolute; left: 28px; bottom: 0; width: 1px; height: 50px; background: var(--color-line); }
   .hero-layout { display: grid; gap: 40px; }
   .hero-copy { grid-row: 2; }
   .hero-visual { position: relative; grid-row: 1; width: 100%; max-width: 500px; aspect-ratio: 362 / 380; margin-inline: auto; }
@@ -100,7 +105,7 @@
   .container-layout { width: 100%; padding-inline: var(--spacing-gutter); }
   .container-content { width: 100%; max-width: var(--container-content); margin-inline: auto; }
   .section { padding-block: var(--spacing-section); }
-  .type-h1, .type-h2, .type-h3, .type-h4 { font-family: var(--font-heading); font-weight: 800; }
+  .type-h1, .type-h2, .type-h3, .type-h4 { font-family: var(--font-heading); font-weight: 700; }
   .type-h1 { font-size: var(--type-h1-size); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); }
   .type-h2 { font-size: var(--type-h2-size); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); }
   .type-h3 { font-size: var(--type-h3-size); line-height: var(--type-h3-leading); letter-spacing: var(--type-h3-tracking); }
@@ -116,6 +121,9 @@
 }
 
 @media (min-width: 64rem) {
+  .how-it-works-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 80px; padding-block: 28px; }
+  .how-it-works-step { min-height: 0; padding-bottom: 0; }
+  .how-it-works-step:not(:last-child)::after { top: 28px; bottom: auto; left: 52px; width: calc(100% + 28px); height: 1px; }
   .hero-layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 60px; align-items: start; }
   .hero-copy { grid-row: 1; }
   .hero-visual { grid-row: 1; grid-column: 2; aspect-ratio: 500 / 520; }
