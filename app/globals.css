@@ -76,12 +76,14 @@
 }
 
 @layer components {
+  .cta-decorations[data-parallax="active"] > * { transform: translate3d(0, var(--parallax-offset, 0px), 0); will-change: transform; }
+  .cta-decorations[data-parallax="active"] > :nth-child(even) { transform: translate3d(0, calc(-1 * var(--parallax-offset, 0px)), 0); }
   .people-collage { --collage-unit: calc(100cqw / 362); position: relative; container-type: inline-size; width: 100%; max-width: 530px; aspect-ratio: 362 / 309.5; margin-inline: auto; }
   .people-collage-circle { position: absolute; left: 50%; top: 50%; width: calc(330 * var(--collage-unit)); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: var(--color-primary-blue-light); }
   .people-collage-columns { position: relative; display: flex; height: 100%; align-items: center; justify-content: space-between; }
   .people-collage-column { display: flex; flex: none; flex-direction: column; align-items: flex-start; gap: calc(8 * var(--collage-unit)); }
-  .people-collage[data-parallax="active"] .people-collage-column { transform: translate3d(0, var(--people-parallax-offset, 0px), 0); will-change: transform; }
-  .people-collage[data-parallax="active"] .people-collage-column:nth-child(even) { transform: translate3d(0, calc(-1 * var(--people-parallax-offset, 0px)), 0); }
+  .people-collage[data-parallax="active"] .people-collage-column { transform: translate3d(0, var(--parallax-offset, 0px), 0); will-change: transform; }
+  .people-collage[data-parallax="active"] .people-collage-column:nth-child(even) { transform: translate3d(0, calc(-1 * var(--parallax-offset, 0px)), 0); }
   .people-collage-column:first-child { align-items: flex-end; padding-top: calc(48 * var(--collage-unit)); }
   .people-collage-photo { position: relative; width: calc(var(--photo-mobile-width) * var(--collage-unit)); height: calc(var(--photo-mobile-height) * var(--collage-unit)); overflow: hidden; border-radius: calc(5 * var(--collage-unit)); box-shadow: var(--shadow-dark-m); }
   .how-it-works-steps { display: grid; }
@@ -155,6 +157,7 @@
 @keyframes menu-slide-up { from { transform: translateY(0); } to { transform: translateY(-100%); } }
 
 @media (prefers-reduced-motion: reduce) {
+  .cta-decorations > * { transform: none !important; will-change: auto; }
   .people-collage .people-collage-column { transform: none !important; will-change: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }

@@ -6,6 +6,7 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { Testimonial } from "@/components/sections/testimonial";
 import { People } from "@/components/sections/people";
 import { Contact } from "@/components/sections/contact";
+import { FinalCta } from "@/components/sections/final-cta";
 
 export default function HomePage() {
   return <>
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Testimonial />
       <People />
       <Contact />
+      <FinalCta />
     </main>
   </>;
 }

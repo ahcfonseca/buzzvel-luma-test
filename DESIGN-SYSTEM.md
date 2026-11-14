@@ -24,12 +24,14 @@ The 1120px cap applies to content, excluding gutters. At 1280px the content is e
 - `Button`: native action/submit button; defaults to `type="button"`. `ButtonLink`: navigation with the same primary, secondary, yellow, and ghost appearances. Ghost is designed for dark or saturated backgrounds.
 - `InputField`, `TextareaField`: explicit labels, native HTML props, optional hint/error associations. Callers own validation and submission.
 - `CategoryCard`, `CourseCard`: typed content, semantic structure, responsive imagery. Course images should use local paths in `public/`.
-- `AvatarGroup`: overlapping decorative portraits with an accessible group label.
+- `AvatarGroup`: overlapping decorative portraits with an accessible group label, 32px/40px sizes, and cream/yellow border tones.
 - `RatingBadge`: content-sized five-star social proof with a typed average rating and label. The consuming section controls its position.
 - `StatBadge`: content-sized statistic and supporting label, with typed value and label props. The consuming section controls its position.
 - `Pill`: a transparent bordered metadata label with native span props. Inherits text color; it is not a button or filter.
 - `ContactCard`: responsive icon-and-detail card with typed title, value, icon dimensions and optional value link.
 - `Contact`: responsive contact details and form. Reuses shared fields and buttons, validates entries and prepares an email draft; no message is sent automatically and no delivery endpoint is configured. Form copy remains English across breakpoints for consistency with the site.
+- `FinalCta`: centered closing call to action with four learner portraits and configurable navigation links. Original doodles and geometric decorations appear only at desktop widths; mobile uses full-width stacked buttons. The Join Luma destination is reserved for a future signup page.
+- `ScrollParallax`: shared reversible scroll controller with a configurable pixel distance (36px default for People, 60px for CTA decorations). Desktop-only effects respond to breakpoint changes; reduced motion leaves the final layout static. CTA doodles alternate vertical direction and settle at 90% visible capacity while text and buttons stay still.
 - `FeaturedCourse`: responsive featured-course section with local optimized imagery, metadata pills, and configurable course/catalogue destinations. Those destinations are reserved for future course pages.
 - `HowItWorks`: centered eyebrow/title and a semantic three-step list with decorative geometric illustrations. Steps stack vertically on mobile and tablet and form a connected row on desktop. The illustrations use an additional design color, `accent-yellow` (`#e9d659`).
 - `Testimonial`: semantic quote/author figure and community-statistics definition list. Metrics sit in a mobile row and a desktop column with a divider; the quote retains its 600 weight and metric values follow the 700 heading override.
