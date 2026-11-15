@@ -14,7 +14,16 @@ function HeroVisual() {
     <div aria-hidden="true" className="hero-orange-panel" />
     <div aria-hidden="true" className="hero-circle" />
     <div className="hero-photo">
-      <Image src={heroImage} alt="A learner focused on a lesson at their laptop." fill preload sizes="(min-width: 1280px) 500px, (min-width: 1024px) 42vw, (min-width: 640px) 484px, calc(100vw - 56px)" placeholder="blur" className="object-cover" />
+      <Image
+        src={heroImage}
+        alt="A learner focused on a lesson at their laptop."
+        fill
+        preload
+        fetchPriority="high"
+        sizes="(min-width: 1280px) 500px, (min-width: 1024px) calc((100vw - 220px) / 2.12), (min-width: 540px) 484px, calc(100vw - 56px)"
+        placeholder="blur"
+        className="object-cover"
+      />
     </div>
     <StatBadge value="120+" label="expert-led courses" className="hero-course-badge" />
     <RatingBadge rating={4.9} className="hero-rating-badge" />
