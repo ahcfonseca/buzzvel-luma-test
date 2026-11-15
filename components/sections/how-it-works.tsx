@@ -1,3 +1,4 @@
+import styles from "./how-it-works.module.css";
 import { Section, SectionHeading } from "@/components/ui/layout";
 import { HowItWorksReveal } from "@/components/sections/how-it-works-reveal";
 
@@ -20,8 +21,8 @@ export function HowItWorks() {
   return <Section id="how-it-works" aria-labelledby="how-it-works-title" className="bg-background-light-yellow">
     <SectionHeading id="how-it-works-title" eyebrow="How Luma works" title="Less browsing. More learning." align="center" className="max-w-none" />
     <HowItWorksReveal>
-      {steps.map(step => <li key={step.number} className="how-it-works-step">
-        <div className="how-it-works-step-content relative z-10">
+      {steps.map(step => <li key={step.number} className={styles.howItWorksStep}>
+        <div className={`${styles.howItWorksStepContent} relative z-10`}>
         <StepIcon variant={step.illustration} />
         <p className="type-overline mt-6 text-text-tertiary">Step {step.number}</p>
         <h3 className="type-h5 mt-2">{step.title}</h3>

@@ -1,0 +1,16 @@
+@layer components {
+  .ctaDecorations[data-parallax="active"] > * {
+    transform: translate3d(0, var(--parallax-offset, 0px), 0);
+    will-change: transform;
+  }
+  .ctaDecorations[data-parallax="active"] > :nth-child(even) {
+    transform: translate3d(0, calc(-1 * var(--parallax-offset, 0px)), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaDecorations > * {
+    transform: none !important;
+    will-change: auto;
+  }
+}

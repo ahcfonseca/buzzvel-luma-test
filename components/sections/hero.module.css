@@ -1,0 +1,93 @@
+@layer components {
+  .heroLayout {
+    display: grid;
+    gap: 40px;
+  }
+  .heroCopy {
+    grid-row: 2;
+  }
+  .heroVisual {
+    position: relative;
+    grid-row: 1;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 362 / 380;
+    margin-inline: auto;
+  }
+  .heroOrangePanel {
+    position: absolute;
+    top: 6.3158%;
+    left: 27.7624%;
+    width: 75%;
+    height: 90%;
+    border-radius: var(--radius-card);
+    background: var(--color-background-orange);
+  }
+  .heroCircle {
+    position: absolute;
+    left: -2.7624%;
+    top: 80%;
+    width: 17.6796%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-primary-blue-light);
+  }
+  .heroPhoto {
+    position: absolute;
+    inset-block: 0;
+    left: 8px;
+    right: 8px;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    background: var(--color-primary-blue-light);
+  }
+  .heroCourseBadge {
+    position: absolute;
+    top: 1.5789%;
+    left: 0;
+  }
+  .heroRatingBadge {
+    position: absolute;
+    top: 78.0263%;
+    right: -10px;
+  }
+}
+
+@media (min-width: 64rem) {
+  .heroLayout {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+    gap: 60px;
+    align-items: start;
+  }
+  .heroCopy {
+    grid-row: 1;
+  }
+  .heroVisual {
+    grid-row: 1;
+    grid-column: 2;
+    aspect-ratio: 500 / 520;
+  }
+  .heroOrangePanel {
+    left: 90%;
+    top: 4.6154%;
+    width: 17.8%;
+  }
+  .heroCircle {
+    left: -8.96%;
+    top: 77.5%;
+    width: 21.2%;
+  }
+  .heroPhoto {
+    inset: 0;
+    border-radius: var(--radius-panel);
+  }
+  .heroCourseBadge {
+    top: 3.0769%;
+    left: -4.4%;
+  }
+  .heroRatingBadge {
+    top: 83.9423%;
+    left: 69.64%;
+    right: auto;
+  }
+}

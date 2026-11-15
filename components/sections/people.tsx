@@ -1,3 +1,4 @@
+import styles from "./people.module.css";
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
@@ -31,15 +32,15 @@ const columns: readonly (readonly CollagePhoto[])[] = [
 
 function PeopleCollage() {
   return <PeopleCollageMotion>
-    <div className="people-collage-circle" aria-hidden="true" />
-    <div className="people-collage-columns">
-      {columns.map((photos, index) => <div key={index} className="people-collage-column">
+    <div className={styles.peopleCollageCircle} aria-hidden="true" />
+    <div className={styles.peopleCollageColumns}>
+      {columns.map((photos, index) => <div key={index} className={styles.peopleCollageColumn}>
         {photos.map(photo => {
           const style: PhotoStyle = {
             "--photo-mobile-width": photo.mobile[0], "--photo-mobile-height": photo.mobile[1],
             "--photo-desktop-width": photo.desktop[0], "--photo-desktop-height": photo.desktop[1],
           };
-          return <div key={photo.src} className="people-collage-photo" style={style}>
+          return <div key={photo.src} className={styles.peopleCollagePhoto} style={style}>
             <Image src={photo.src} alt="" fill sizes="(min-width: 1024px) 140px, (min-width: 640px) 150px, 26vw" className="object-cover" />
           </div>;
         })}

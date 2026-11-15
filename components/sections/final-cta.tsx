@@ -1,3 +1,4 @@
+import styles from "./final-cta.module.css";
 import Image from "next/image";
 import { AvatarGroup } from "@/components/ui/avatar-group";
 import { ButtonLink } from "@/components/ui/button";
@@ -8,7 +9,7 @@ export type FinalCtaProps = { coursesHref?: string; joinHref?: string };
 const learners = ["/images/learner-1.png", "/images/learner-2.png", "/images/learner-3.png", "/images/learner-4.png"] as const;
 
 function CtaDecorations() {
-  return <ScrollParallax decorative desktopOnly distance={60} className="cta-decorations pointer-events-none absolute inset-y-0 left-1/2 hidden w-[1280px] -translate-x-1/2 select-none lg:block">
+  return <ScrollParallax decorative desktopOnly distance={60} className={`${styles.ctaDecorations} pointer-events-none absolute inset-y-0 left-1/2 hidden w-[1280px] -translate-x-1/2 select-none lg:block`}>
     <div className="absolute size-27 rounded-full border-2 border-background-orange" style={{ left: 22, top: 16.06 }} />
     <div className="absolute size-30 rounded-full bg-background-orange" style={{ left: 56, top: 373.06 }} />
     <div className="absolute size-10 rounded-full bg-background-orange" style={{ left: 1064, top: 468.37 }} />

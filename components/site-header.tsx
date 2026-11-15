@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./site-header.module.css";
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { ButtonLink } from "@/components/ui/button";
@@ -22,7 +23,7 @@ const navigation: readonly NavigationItem[] = [
 
 function Logo({ onClick }: { onClick?: () => void }) {
   return <a href="/" aria-label="Luma home" onClick={onClick} className="inline-flex shrink-0 items-center py-3">
-    <Image src="/images/luma-logo.svg" alt="" width={54} height={17} priority className="header-logo" />
+    <Image src="/images/luma-logo.svg" alt="" width={54} height={17} priority className={styles.headerLogo} />
   </a>;
 }
 
@@ -75,34 +76,34 @@ export function SiteHeader({ items = navigation, loginHref = "/login", startHref
   }, [isClosing]);
 
   return <>
-    <header className="site-header border-b border-line">
-      <Container className="header-row">
+    <header className={`${styles.siteHeader} border-b border-line`}>
+      <Container className={styles.headerRow}>
         <Logo />
         <nav aria-label="Main navigation" className="hidden lg:block">
           <ul className="flex items-center gap-8">
-            {items.map(item => <li key={item.href}><TextLink href={item.href} className="header-nav-link">{item.label}</TextLink></li>)}
+            {items.map(item => <li key={item.href}><TextLink href={item.href} className={styles.headerNavLink}>{item.label}</TextLink></li>)}
           </ul>
         </nav>
         <div className="hidden items-center justify-end gap-2 lg:flex">
-          <TextLink href={loginHref} className="header-nav-link px-4 py-2.5">Log in</TextLink>
+          <TextLink href={loginHref} className={`${styles.headerNavLink} px-4 py-2.5`}>Log in</TextLink>
           <ButtonLink href={startHref} size="compact">Start learning</ButtonLink>
         </div>
-        <button type="button" className="header-menu-toggle lg:hidden" aria-label="Open navigation menu" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={openMenu}>
+        <button type="button" className={`${styles.headerMenuToggle} lg:hidden`} aria-label="Open navigation menu" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={openMenu}>
           <Image src="/images/menu.svg" alt="" width={24} height={24} />
         </button>
       </Container>
     </header>
 
     {/* Native modal provides focus containment, background inertness and focus restoration. */}
-    <dialog ref={dialog} id="mobile-navigation" aria-label="Navigation menu" className="mobile-navigation" data-state={isClosing ? "closing" : "open"}
+    <dialog ref={dialog} id="mobile-navigation" aria-label="Navigation menu" className={styles.mobileNavigation} data-state={isClosing ? "closing" : "open"}
       onCancel={event => { event.preventDefault(); requestClose(); }}
       onClose={() => { setIsOpen(false); setIsClosing(false); }}
       onAnimationEnd={event => { if (event.target === event.currentTarget && isClosing) closeMenu(); }}>
       <div className="border-b border-line">
-        <Container className="header-row">
+        <Container className={styles.headerRow}>
           <Logo onClick={closeMenu} />
-          <button type="button" className="header-menu-toggle" aria-label="Close navigation menu" onClick={requestClose} autoFocus>
-            <span aria-hidden="true" className="header-close-icon" />
+          <button type="button" className={styles.headerMenuToggle} aria-label="Close navigation menu" onClick={requestClose} autoFocus>
+            <span aria-hidden="true" className={styles.headerCloseIcon} />
           </button>
         </Container>
       </div>
@@ -114,7 +115,7 @@ export function SiteHeader({ items = navigation, loginHref = "/login", startHref
                 <TextLink
                   href={item.href}
                   onClick={closeMenu}
-                  className="mobile-navigation-link type-h4 block py-5 transition-colors hover:text-primary-blue"
+                  className={`${styles.mobileNavigationLink} type-h4 block py-5 transition-colors hover:text-primary-blue`}
                   style={{ "--menu-item-delay": `${180 + index * 80}ms` } as CSSProperties}
                 >
                   {item.label}

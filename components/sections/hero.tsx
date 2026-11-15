@@ -1,3 +1,4 @@
+import styles from "./hero.module.css";
 import Image from "next/image";
 import { AvatarGroup } from "@/components/ui/avatar-group";
 import { ButtonLink } from "@/components/ui/button";
@@ -10,10 +11,10 @@ export type HeroProps = { coursesHref?: string; howItWorksHref?: string };
 const learners = ["/images/learner-1.png", "/images/learner-2.png", "/images/learner-3.png"] as const;
 
 function HeroVisual() {
-  return <div className="hero-visual">
-    <div aria-hidden="true" className="hero-orange-panel" />
-    <div aria-hidden="true" className="hero-circle" />
-    <div className="hero-photo">
+  return <div className={styles.heroVisual}>
+    <div aria-hidden="true" className={styles.heroOrangePanel} />
+    <div aria-hidden="true" className={styles.heroCircle} />
+    <div className={styles.heroPhoto}>
       <Image
         src={heroImage}
         alt="A learner focused on a lesson at their laptop."
@@ -25,15 +26,15 @@ function HeroVisual() {
         className="object-cover"
       />
     </div>
-    <StatBadge value="120+" label="expert-led courses" className="hero-course-badge" />
-    <RatingBadge rating={4.9} className="hero-rating-badge" />
+    <StatBadge value="120+" label="expert-led courses" className={styles.heroCourseBadge} />
+    <RatingBadge rating={4.9} className={styles.heroRatingBadge} />
   </div>;
 }
 
 export function Hero({ coursesHref = "#courses", howItWorksHref = "#how-it-works" }: HeroProps) {
   return <section aria-labelledby="hero-title" className="section overflow-x-clip bg-background-light-yellow">
-    <Container className="hero-layout">
-      <div className="hero-copy min-w-0">
+    <Container className={styles.heroLayout}>
+      <div className={`${styles.heroCopy} min-w-0`}>
         <p className="type-overline text-primary-blue">Learn at your own pace</p>
         <h1 id="hero-title" className="type-h1 mt-4">Build skills that actually move you forward.</h1>
         <p className="type-subtitle-1 mt-6 max-w-120 text-text-secondary">Practical courses taught by people who do the work every day. Learn design, technology, business and more — one focused lesson at a time.</p>
