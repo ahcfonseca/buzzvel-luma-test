@@ -31,7 +31,7 @@ export function ContactForm() {
     setStatus("Review and send your message in your email app. Your entries will stay here if you need them.");
   }
 
-  return <form aria-labelledby="contact-form-title" aria-describedby="contact-delivery-note" action="mailto:contact@luma.com" method="post" encType="text/plain" onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-6 rounded-card border border-line bg-background-white px-5 py-6 shadow-contact lg:p-10">
+  return <form aria-labelledby="contact-form-title" aria-describedby="contact-delivery-note" method="post" onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-6 rounded-card border border-line bg-background-white px-5 py-6 shadow-contact lg:p-10">
     <div>
       <h3 id="contact-form-title" className="type-h5 leading-8">Contact us</h3>
       <p className="mt-2 text-text-secondary">Fill out the fields and we will get in touch.</p>
