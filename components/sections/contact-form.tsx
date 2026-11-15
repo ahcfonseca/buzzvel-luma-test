@@ -7,11 +7,9 @@ import { createContactDraft, validateContact, type ContactErrors, type ContactVa
 
 export function ContactForm() {
   const [errors, setErrors] = useState<ContactErrors>({});
-  const [status, setStatus] = useState("");
 
   function clearError(field: keyof ContactValues) {
     setErrors(previous => ({ ...previous, [field]: undefined }));
-    setStatus("");
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -28,10 +26,9 @@ export function ContactForm() {
       return;
     }
     window.location.assign(createContactDraft(values));
-    setStatus("Review and send your message in your email app. Your entries will stay here if you need them.");
   }
 
-  return <form aria-labelledby="contact-form-title" aria-describedby="contact-delivery-note" method="post" onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-6 rounded-card border border-line bg-background-white px-5 py-6 shadow-contact lg:p-10">
+  return <form aria-labelledby="contact-form-title" method="post" onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-6 rounded-card border border-line bg-background-white px-5 py-6 shadow-contact lg:p-10">
     <div>
       <h3 id="contact-form-title" className="type-h5 leading-8">Contact us</h3>
       <p className="mt-2 text-text-secondary">Fill out the fields and we will get in touch.</p>
@@ -41,10 +38,6 @@ export function ContactForm() {
       <InputField id="contact-email" name="email" label="Email" type="email" placeholder="youremail@example.com" autoComplete="email" required maxLength={254} error={errors.email} onChange={() => clearError("email")} />
       <TextareaField id="contact-message" name="message" label="Your question" placeholder="Tell us how we can help..." rows={3} className="h-25 lg:h-30" required minLength={10} maxLength={2000} error={errors.message} onChange={() => clearError("message")} />
     </div>
-    <div>
-      <Button type="submit" fullWidth>Send message</Button>
-      <p id="contact-delivery-note" className="mt-3 text-xs leading-5 text-text-secondary">Opens a draft in your email app for you to review and send.</p>
-    </div>
-    <p role="status" className={status ? "text-text-secondary" : "sr-only"}>{status}</p>
+    <Button type="submit" fullWidth>Send message</Button>
   </form>;
 }

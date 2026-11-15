@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/layout";
 import { TextLink } from "@/components/ui/text-link";
@@ -75,7 +75,7 @@ export function SiteHeader({ items = navigation, loginHref = "/login", startHref
   }, [isClosing]);
 
   return <>
-    <header className="site-header border-b border-line bg-background-light-yellow">
+    <header className="site-header border-b border-line">
       <Container className="header-row">
         <Logo />
         <nav aria-label="Main navigation" className="hidden lg:block">
@@ -109,7 +109,18 @@ export function SiteHeader({ items = navigation, loginHref = "/login", startHref
       <Container className="flex min-h-[calc(100dvh-69px)] flex-col pb-10 pt-10">
         <nav aria-label="Mobile navigation">
           <ul className="flex flex-col">
-            {items.map(item => <li key={item.href} className="border-b border-line"><TextLink href={item.href} onClick={closeMenu} className="type-h4 block py-5 transition-colors hover:text-primary-blue">{item.label}</TextLink></li>)}
+            {items.map((item, index) => (
+              <li key={item.href} className="border-b border-line">
+                <TextLink
+                  href={item.href}
+                  onClick={closeMenu}
+                  className="mobile-navigation-link type-h4 block py-5 transition-colors hover:text-primary-blue"
+                  style={{ "--menu-item-delay": `${180 + index * 80}ms` } as CSSProperties}
+                >
+                  {item.label}
+                </TextLink>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className="mt-auto flex flex-col gap-3 pt-12">
