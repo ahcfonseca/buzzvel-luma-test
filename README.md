@@ -2,6 +2,12 @@
 
 A responsive learning platform landing page built with Next.js App Router, TypeScript, and Tailwind CSS.
 
+## Project scope
+
+This project is a frontend test. It includes no backend, separate local backend server, or mock API. Page content is defined in the frontend, and the contact form opens a draft in the visitor's email app.
+
+The local Next.js server runs the frontend for development and production previews. In a real application, I would connect the frontend to a backend service or API to handle data and contact form submissions.
+
 ## Requirements
 
 - Node.js 20.9 or later
