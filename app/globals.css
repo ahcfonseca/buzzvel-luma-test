@@ -156,6 +156,20 @@
 }
 
 @keyframes menu-slide-down { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+@keyframes staggered-item-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes how-it-works-line-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  .categories-reveal[data-reveal="pending"] > li > a { opacity: 0; transform: translateY(12px); }
+  .categories-reveal[data-reveal="revealing"] > li > a { animation: staggered-item-in 500ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay) both; }
+  .how-it-works-step { --step-delay: 0ms; }
+  .how-it-works-step:nth-child(2) { --step-delay: 300ms; }
+  .how-it-works-step:nth-child(3) { --step-delay: 600ms; }
+  .how-it-works-steps[data-reveal="pending"] .how-it-works-step-content { opacity: 0; transform: translateY(12px); }
+  .how-it-works-steps[data-reveal="pending"] .how-it-works-step::after { transform: scaleX(0); transform-origin: left; }
+  .how-it-works-steps[data-reveal="revealing"] .how-it-works-step-content { animation: staggered-item-in 500ms cubic-bezier(0.22, 1, 0.36, 1) var(--step-delay) both; }
+  .how-it-works-steps[data-reveal="revealing"] .how-it-works-step::after { transform-origin: left; animation: how-it-works-line-in 500ms ease-out calc(var(--step-delay) + 200ms) both; }
+}
 @keyframes menu-slide-up { from { transform: translateY(0); } to { transform: translateY(-100%); } }
 
 @media (prefers-reduced-motion: reduce) {

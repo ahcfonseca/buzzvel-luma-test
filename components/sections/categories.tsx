@@ -1,5 +1,7 @@
 import { CategoryCard, type CategoryCardProps } from "@/components/ui/cards";
 import { Section, SectionHeading } from "@/components/ui/layout";
+import { CategoriesReveal } from "@/components/sections/categories-reveal";
+import type { CSSProperties } from "react";
 
 export type Category = Pick<CategoryCardProps, "number" | "title" | "description" | "href">;
 export type CategoriesProps = { categories?: readonly Category[] };
@@ -15,8 +17,8 @@ const defaultCategories: readonly Category[] = [
 export function Categories({ categories = defaultCategories }: CategoriesProps) {
   return <Section id="courses" aria-labelledby="categories-title" className="bg-background-white">
     <SectionHeading id="categories-title" eyebrow="Find your next skill" title="Learn something worth knowing." description="Short, practical courses designed around skills you can put to work immediately." />
-    <ul className="mt-12 grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:mt-10 lg:grid-cols-4 lg:gap-5">
-      {categories.map(category => <li key={category.number} className="min-w-0"><CategoryCard {...category} /></li>)}
-    </ul>
+    <CategoriesReveal>
+      {categories.map((category, index) => <li key={category.number} className="min-w-0" style={{ "--reveal-delay": `${index * 300}ms` } as CSSProperties}><CategoryCard {...category} /></li>)}
+    </CategoriesReveal>
   </Section>;
 }

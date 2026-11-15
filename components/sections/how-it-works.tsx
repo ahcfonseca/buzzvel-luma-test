@@ -1,4 +1,5 @@
 import { Section, SectionHeading } from "@/components/ui/layout";
+import { HowItWorksReveal } from "@/components/sections/how-it-works-reveal";
 
 type StepIllustration = "focus" | "experience" | "practice";
 type LearningStep = { number: string; title: string; description: string; illustration: StepIllustration };
@@ -18,13 +19,15 @@ function StepIcon({ variant }: { variant: StepIllustration }) {
 export function HowItWorks() {
   return <Section id="how-it-works" aria-labelledby="how-it-works-title" className="bg-background-light-yellow">
     <SectionHeading id="how-it-works-title" eyebrow="How Luma works" title="Less browsing. More learning." align="center" className="max-w-none" />
-    <ol className="how-it-works-steps mt-10 lg:mt-20">
+    <HowItWorksReveal>
       {steps.map(step => <li key={step.number} className="how-it-works-step">
+        <div className="how-it-works-step-content relative z-10">
         <StepIcon variant={step.illustration} />
         <p className="type-overline mt-6 text-text-tertiary">Step {step.number}</p>
         <h3 className="type-h5 mt-2">{step.title}</h3>
         <p className="type-subtitle-2 mt-3 text-text-secondary">{step.description}</p>
+        </div>
       </li>)}
-    </ol>
+    </HowItWorksReveal>
   </Section>;
 }

@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/layout";
+import { CountUp } from "@/components/ui/count-up";
 
-type LearningMetric = { value: string; label: string };
+type LearningMetric = { value: number; suffix: string; label: string };
 const metrics: readonly LearningMetric[] = [
-  { value: "24K+", label: "active learners" },
-  { value: "120+", label: "expert-led courses" },
-  { value: "92%", label: "complete their first course" },
+  { value: 24, suffix: "K+", label: "active learners" },
+  { value: 120, suffix: "+", label: "expert-led courses" },
+  { value: 92, suffix: "%", label: "complete their first course" },
 ];
 
 export function Testimonial() {
@@ -28,7 +29,7 @@ export function Testimonial() {
       <dl aria-label="Luma learning community statistics" className="grid w-full min-w-0 grid-cols-3 gap-4 lg:w-[35.8%] lg:shrink-0 lg:grid-cols-1 lg:gap-5 lg:border-l lg:border-line lg:pl-12">
         {metrics.map(metric => <div key={metric.label} className="flex min-w-0 flex-col">
           <dt className="type-body order-2 mt-1 text-text-tertiary">{metric.label}</dt>
-          <dd className="type-h1 order-1 text-[clamp(1.875rem,10vw,2.5rem)] text-primary-blue lg:text-[4rem]">{metric.value}</dd>
+          <dd className="type-h1 order-1 text-[clamp(1.875rem,10vw,2.5rem)] text-primary-blue lg:text-[4rem]"><CountUp value={metric.value} suffix={metric.suffix} /></dd>
         </div>)}
       </dl>
     </Container>
