@@ -4,13 +4,13 @@ import { TextLink } from "@/components/ui/text-link";
 
 export type CategoryCardProps = { number: string; title: string; description: string; href: string; className?: string };
 export function CategoryCard({ number, title, description, href, className }: CategoryCardProps) {
-  return <a href={href} className={cn("group flex h-full min-h-50 min-w-0 flex-col rounded-card border border-line bg-background-white p-6 transition-colors hover:border-primary-blue lg:min-h-65 lg:p-7", className)}>
+  return <a href={href} className={cn("group flex min-w-0 flex-col rounded-card border border-line bg-background-white p-6 transition-colors hover:border-primary-blue lg:h-full lg:min-h-65 lg:p-7", className)}>
     <div className="h-[46.5px] shrink-0 pt-0.5">
       <span className="type-overline inline-block rounded-badge bg-primary-blue-light px-2 py-1 text-primary-blue">{number}</span>
     </div>
     <h3 className="type-h5">{title}</h3>
     <p className="mt-3 text-text-tertiary">{description}</p>
-    <span className="mt-auto flex items-center gap-2 pt-6 font-bold"><span className="link-underline">Explore</span> <Image src="/images/arrow-right.svg" alt="" width={20} height={20} className="shrink-0 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1 motion-safe:group-focus-visible:translate-x-1 motion-reduce:transition-none" /><span className="sr-only"> {title}</span></span>
+    <span className="flex items-center gap-2 pt-6 font-bold lg:mt-auto"><span className="link-underline">Explore</span> <Image src="/images/arrow-right.svg" alt="" width={20} height={20} className="shrink-0 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1 motion-safe:group-focus-visible:translate-x-1 motion-reduce:transition-none" /><span className="sr-only"> {title}</span></span>
   </a>;
 }
 
